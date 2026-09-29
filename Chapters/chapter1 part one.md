@@ -137,22 +137,11 @@ A Label displays text on a form.
 
 Its `Text` property can be changed in the Properties Window or in code.
 
-Example:
+Example: 
 
 ```csharp
 answerLabel.Text = "";
 ```
-
-## 11. PictureBox
-
-A **PictureBox** is used to display an image.
-
-Important properties include:
-
-- `Image`
-- `SizeMode`
-- `Visible`
-
 
 
 
