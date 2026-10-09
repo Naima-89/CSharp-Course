@@ -145,4 +145,4 @@ catch (Exception ex)
 Named Constants
 A named constant is a name representing a value that cannot be changed while the program is running. Use the const keyword to declare a constant.
 const double INTEREST_RATE = 0.129;
-Writing constant names in uppercase is a common convention, but it is not required.
+Writing constant names in uppercase is a common convention, but it is not required
