@@ -1,4 +1,4 @@
-C# ToString, Parse, and Try-Catch
+ ToString, Parse, and Try-Catch
 
 1. ToString()
 
