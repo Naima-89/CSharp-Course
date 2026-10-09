@@ -1,0 +1,292 @@
+﻿namespace Assignments
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            food1 = new Label();
+            food2 = new Label();
+            txtfood1 = new TextBox();
+            txtfood2 = new TextBox();
+            txtprice2 = new TextBox();
+            txtprice1 = new TextBox();
+            price2 = new Label();
+            price1 = new Label();
+            btnCalculate = new Button();
+            btnClear = new Button();
+            btnClose = new Button();
+            lblNetAmount = new TextBox();
+            lblTotalAmount = new TextBox();
+            lblNet = new Label();
+            lblTotal = new Label();
+            lblTipAmount = new TextBox();
+            lblSalesTax = new TextBox();
+            lblTip = new Label();
+            lblSales = new Label();
+            SuspendLayout();
+            // 
+            // food1
+            // 
+            food1.AutoSize = true;
+            food1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            food1.Location = new Point(23, 21);
+            food1.Name = "food1";
+            food1.Size = new Size(117, 25);
+            food1.TabIndex = 0;
+            food1.Text = "Enter Food1";
+            // 
+            // food2
+            // 
+            food2.AutoSize = true;
+            food2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            food2.Location = new Point(21, 64);
+            food2.Name = "food2";
+            food2.Size = new Size(119, 25);
+            food2.TabIndex = 1;
+            food2.Text = "Enter Food2";
+            // 
+            // txtfood1
+            // 
+            txtfood1.BorderStyle = BorderStyle.FixedSingle;
+            txtfood1.Location = new Point(185, 18);
+            txtfood1.Multiline = true;
+            txtfood1.Name = "txtfood1";
+            txtfood1.Size = new Size(272, 35);
+            txtfood1.TabIndex = 2;
+            txtfood1.TextChanged += textBox1_TextChanged;
+            // 
+            // txtfood2
+            // 
+            txtfood2.BorderStyle = BorderStyle.FixedSingle;
+            txtfood2.Location = new Point(185, 64);
+            txtfood2.Multiline = true;
+            txtfood2.Name = "txtfood2";
+            txtfood2.Size = new Size(272, 35);
+            txtfood2.TabIndex = 3;
+            // 
+            // txtprice2
+            // 
+            txtprice2.BorderStyle = BorderStyle.FixedSingle;
+            txtprice2.Location = new Point(185, 153);
+            txtprice2.Multiline = true;
+            txtprice2.Name = "txtprice2";
+            txtprice2.Size = new Size(272, 35);
+            txtprice2.TabIndex = 7;
+            // 
+            // txtprice1
+            // 
+            txtprice1.BorderStyle = BorderStyle.FixedSingle;
+            txtprice1.Location = new Point(185, 107);
+            txtprice1.Multiline = true;
+            txtprice1.Name = "txtprice1";
+            txtprice1.Size = new Size(272, 35);
+            txtprice1.TabIndex = 6;
+            // 
+            // price2
+            // 
+            price2.AutoSize = true;
+            price2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            price2.Location = new Point(12, 156);
+            price2.Name = "price2";
+            price2.Size = new Size(169, 25);
+            price2.TabIndex = 5;
+            price2.Text = "Enter Food2 Price";
+            // 
+            // price1
+            // 
+            price1.AutoSize = true;
+            price1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            price1.Location = new Point(12, 110);
+            price1.Name = "price1";
+            price1.Size = new Size(167, 25);
+            price1.TabIndex = 4;
+            price1.Text = "Enter Food1 Price";
+            // 
+            // btnCalculate
+            // 
+            btnCalculate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCalculate.Location = new Point(55, 262);
+            btnCalculate.Name = "btnCalculate";
+            btnCalculate.Size = new Size(113, 70);
+            btnCalculate.TabIndex = 10;
+            btnCalculate.Text = "Calculate";
+            btnCalculate.UseVisualStyleBackColor = true;
+            btnCalculate.Click += btnCalculate_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClear.Location = new Point(259, 262);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(113, 70);
+            btnClear.TabIndex = 11;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click_1;
+            // 
+            // btnClose
+            // 
+            btnClose.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.Location = new Point(492, 262);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(113, 70);
+            btnClose.TabIndex = 12;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click_1;
+            // 
+            // lblNetAmount
+            // 
+            lblNetAmount.BorderStyle = BorderStyle.FixedSingle;
+            lblNetAmount.Location = new Point(169, 489);
+            lblNetAmount.Multiline = true;
+            lblNetAmount.Name = "lblNetAmount";
+            lblNetAmount.Size = new Size(272, 35);
+            lblNetAmount.TabIndex = 20;
+            // 
+            // lblTotalAmount
+            // 
+            lblTotalAmount.BorderStyle = BorderStyle.FixedSingle;
+            lblTotalAmount.Location = new Point(169, 443);
+            lblTotalAmount.Multiline = true;
+            lblTotalAmount.Name = "lblTotalAmount";
+            lblTotalAmount.Size = new Size(272, 35);
+            lblTotalAmount.TabIndex = 19;
+            // 
+            // lblNet
+            // 
+            lblNet.AutoSize = true;
+            lblNet.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNet.Location = new Point(23, 479);
+            lblNet.Name = "lblNet";
+            lblNet.Size = new Size(124, 25);
+            lblNet.TabIndex = 18;
+            lblNet.Text = "Net-Amount";
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(23, 445);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(137, 25);
+            lblTotal.TabIndex = 17;
+            lblTotal.Text = "Total-Amount";
+            // 
+            // lblTipAmount
+            // 
+            lblTipAmount.BorderStyle = BorderStyle.FixedSingle;
+            lblTipAmount.Location = new Point(169, 400);
+            lblTipAmount.Multiline = true;
+            lblTipAmount.Name = "lblTipAmount";
+            lblTipAmount.Size = new Size(272, 35);
+            lblTipAmount.TabIndex = 16;
+            // 
+            // lblSalesTax
+            // 
+            lblSalesTax.BorderStyle = BorderStyle.FixedSingle;
+            lblSalesTax.Location = new Point(169, 354);
+            lblSalesTax.Multiline = true;
+            lblSalesTax.Name = "lblSalesTax";
+            lblSalesTax.Size = new Size(272, 35);
+            lblSalesTax.TabIndex = 15;
+            lblSalesTax.TextChanged += txtsalestax_TextChanged;
+            // 
+            // lblTip
+            // 
+            lblTip.AutoSize = true;
+            lblTip.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTip.Location = new Point(29, 402);
+            lblTip.Name = "lblTip";
+            lblTip.Size = new Size(120, 25);
+            lblTip.TabIndex = 14;
+            lblTip.Text = "Tip-Amount";
+            // 
+            // lblSales
+            // 
+            lblSales.AutoSize = true;
+            lblSales.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSales.Location = new Point(44, 356);
+            lblSales.Name = "lblSales";
+            lblSales.Size = new Size(96, 25);
+            lblSales.TabIndex = 13;
+            lblSales.Text = "Sales-Tax";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 534);
+            Controls.Add(lblNetAmount);
+            Controls.Add(lblTotalAmount);
+            Controls.Add(lblNet);
+            Controls.Add(lblTotal);
+            Controls.Add(lblTipAmount);
+            Controls.Add(lblSalesTax);
+            Controls.Add(lblTip);
+            Controls.Add(lblSales);
+            Controls.Add(btnClose);
+            Controls.Add(btnClear);
+            Controls.Add(btnCalculate);
+            Controls.Add(txtprice2);
+            Controls.Add(txtprice1);
+            Controls.Add(price2);
+            Controls.Add(price1);
+            Controls.Add(txtfood2);
+            Controls.Add(txtfood1);
+            Controls.Add(food2);
+            Controls.Add(food1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label food1;
+        private Label food2;
+        private TextBox txtfood1;
+        private TextBox txtfood2;
+        private TextBox txtprice2;
+        private TextBox txtprice1;
+        private Label price2;
+        private Label price1;
+        private Button btnCalculate;
+        private Button btnClear;
+        private Button btnClose;
+        private TextBox lblNetAmount;
+        private TextBox lblTotalAmount;
+        private Label lblNet; 
+        private Label lblTotal;
+        private TextBox lblTipAmount;
+        private TextBox lblSalesTax;
+        private Label lblTip;
+        private Label lblSales;
+    }
+}
