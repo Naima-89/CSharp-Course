@@ -1,4 +1,4 @@
-# C Chapter 2 – Processing Data
+# C# Chapter 2 – Processing Data
 
 ## Using Named Constants
 
