@@ -1,127 +1,286 @@
 Processing Data in C#
-A variable is a storage location in memory. Its name identifies the location, and its data type specifies what kind of value it can store.
+
+1. Variables and Data Types
+
+A variable is a storage location in memory. Its name identifies the location, and its data type determines what kind of value it can store.
+
 Numeric Data Types
-int stores whole numbers.
-double stores numbers that may contain decimal parts.
-decimal stores decimal values with greater precision and is commonly used for financial calculations.
+
+Data Type| Description
+"int"| Stores whole numbers
+"double"| Stores numbers with decimal parts
+"decimal"| Stores precise decimal values, commonly used for money
+
+Example:
+
 int age = 20;
 double temperature = 87.6;
 decimal price = 28.75m;
-A numeric literal is a number written directly in code.
+
+---
+
+2. Numeric Literals
+
+A numeric literal is a value written directly in code.
+
+Example:
+
 int hoursWorked = 40;
 double temperature = 87.6;
 decimal payRate = 28.75m;
-Integer literals such as 40 are treated as int. Numbers with a decimal point, such as 87.6, are treated as double. Add m or M to a numeric literal to make it a decimal, such as 28.75m. Numeric literals are not surrounded by quotation marks.
-Assigning Values to Variables
+
+Rules:
+
+- "40" is an integer literal.
+- "87.6" is a double literal.
+- "28.75m" is a decimal literal.
+- The suffix "m" or "M" identifies a decimal literal.
+- Numeric literals are not enclosed in quotation marks.
+
+---
+
+3. Assigning Values and Data Type Compatibility
+
 A value assigned to a variable must be compatible with its data type.
-int hoursWorked = 40;       // Valid
-int unitsSold = 650m;       // Error: decimal assigned to int
-int score = -25.5;          // Error: double assigned to int
 
-double distance = 28.75;    // Valid
-double speed = 75;          // Valid
-double sales = 6500.0m;     // Error: decimal assigned to double
+Valid Assignments
 
-decimal balance = 9280.73m; // Valid
-decimal price = 50;         // Valid
-decimal sales = 6500.0;     // Error: double assigned to decimal
-A double value cannot be assigned directly to a decimal variable, and a decimal value cannot be assigned directly to a double variable. Use the correct data type or convert the value when necessary.
-Type Casting
-Casting explicitly converts a value from one data type to another. Write the target type in parentheses before the value.
-decimal moneyNumber = 4500m;
-int wholeNumber = (int)moneyNumber;
+int age = 20;
 
-decimal anotherMoneyNumber = 625.70m;
-double realNumber = (double)anotherMoneyNumber;
-Casting a decimal value to int removes its fractional part.
-The var Keyword
-The var keyword allows the compiler to determine a local variable's data type from the value assigned to it.
+double distance = 28.75;
+double quantity = 10;
+
+decimal salary = 1500.50m;
+decimal amount = 100;
+
+Invalid Assignments
+
+int number = 50.5;         // Error
+int unitsSold = 650m;      // Error
+
+double sales = 6500.0m;    // Error
+decimal balance = 6500.0;  // Error
+
+Important rules:
+
+- An "int" cannot directly store a decimal value.
+- An integer can be assigned to a "double" or "decimal".
+- A "double" cannot be assigned directly to a "decimal".
+- A "decimal" cannot be assigned directly to a "double".
+
+---
+
+4. Type Casting
+
+Type casting explicitly converts a value from one data type to another.
+
+Example 1: Decimal to Integer
+
+decimal amount = 4500.75m;
+int wholeNumber = (int)amount;
+
+Result: "4500"
+
+The fractional part is removed, not rounded.
+
+Example 2: Double to Decimal
+
+double number = 25.5;
+decimal price = (decimal)number;
+
+The cast operator is written before the value using parentheses containing the target type.
+
+Remember: Casting does not directly convert a string into a numeric type.
+
+---
+
+5. The "var" Keyword
+
+The "var" keyword allows the compiler to determine a local variable's type from its initial value.
+
+Example:
+
 var interestRate = 12.0;       // double
 var stockCode = "D465U";       // string
 var accountBalance = 1000.0m;  // decimal
-A variable declared with var must be initialized when it is declared. The compiler determines its type from that initial value. In this lesson, var is used for local variables declared inside a method.
-Arithmetic Operators
-C# uses arithmetic operators to perform calculations.
-Operator
-Meaning
-+
-Addition
--
-Subtraction
-*
-Multiplication
-/
-Division
-%
-Remainder (modulus)
+
+Rules:
+
+- A "var" variable must be initialized when declared.
+- The compiler determines its type at compile time.
+- Its type cannot later be changed to another type.
+
+---
+
+6. Arithmetic Operators
+
+Arithmetic operators perform mathematical calculations.
+
+Operator| Meaning| Example
+"+"| Addition| "5 + 4"
+"-"| Subtraction| "10 - 3"
+"*"| Multiplication| "5 * 4"
+"/"| Division| "10 / 2"
+"%"| Remainder| "7 % 3"
+
+Example:
+
 int total = 5 + 4;
-A mathematical expression performs a calculation and produces a value.
-int x = 5, y = 4;
+int difference = 10 - 3;
+int product = 5 * 4;
+int quotient = 10 / 2;
+int remainder = 7 % 3;
+
+Mathematical Expressions
+
+An expression performs a calculation and produces a value.
+
+int x = 5;
+int y = 4;
+
 MessageBox.Show((x + y).ToString());
 
-result = (a + b) / 4;
-Follow the normal order of operations. Use parentheses when you need to control the order of calculations.
-When an operation uses an int and a double, the int is treated as a double, and the result is a double. When an operation uses an int and a decimal, the int is treated as a decimal, and the result is a decimal. An operation that mixes double and decimal is not allowed directly.
-Integer Division
-When both values in a division operation are integers, the result is an integer. Any fractional part is discarded.
-int x = 7, y = 3;
-MessageBox.Show((x / y).ToString()); // Displays 2
-To get a fractional result, convert one value to double or use double variables.
-int x = 7, y = 3;
-MessageBox.Show(((double)x / y).ToString()); // About 2.3333
-Reading Numeric Input
-Keyboard input from a TextBox is stored as text, even if the user enters a number. Convert the Text property to the required numeric data type before using the input in a calculation.
+C# follows the normal order of mathematical operations. Parentheses control the order of calculations.
+
+int result = (10 + 6) / 4;
+
+Data type rules:
+
+- "int" combined with "double" produces a "double" result.
+- "int" combined with "decimal" produces a "decimal" result.
+- "double" and "decimal" cannot be mixed directly in one arithmetic expression.
+
+---
+
+7. Integer Division
+
+When both operands are integers, the result is an integer. Any fractional part is discarded.
+
+Example:
+
+int result = 7 / 3;
+MessageBox.Show(result.ToString());
+
+Output:
+
+2
+
+Getting a Decimal Result
+
+Convert at least one operand to "double".
+
+double result = (double)7 / 3;
+MessageBox.Show(result.ToString());
+
+Output: Approximately "2.333333"
+
+---
+
+8. Reading Numeric Input
+
+Text entered into a "TextBox" is stored as a string, even when the user enters a number.
+
+Parsing converts that text into the required numeric data type.
+
+Using "int.Parse()"
+
+Converts valid numeric text into an integer.
+
 int hoursWorked = int.Parse(hoursWorkedTextBox.Text);
+
+Using "double.Parse()"
+
+Converts valid numeric text into a double.
+
 double temperature = double.Parse(temperatureTextBox.Text);
+
+Using "decimal.Parse()"
+
+Converts valid numeric text into a decimal.
+
 decimal price = decimal.Parse(priceTextBox.Text);
-Common conversion methods include int.Parse(), double.Parse(), and decimal.Parse(). A cast operator cannot directly convert a string to a numeric type. If the entered text is not a valid number, parsing can cause an exception.
-Displaying Numeric Values
-A control's Text property accepts text. Use ToString() to convert a numeric value to a string before displaying it in a label, text box, or message box.
-decimal grossPay = 1550.0m;
-grossPayLabel.Text = grossPay.ToString();
+
+Important: If the text is invalid, "Parse()" can throw an exception. A cast operator cannot directly convert a string to a number.
+
+---
+
+9. Displaying Values with "ToString()"
+
+The "ToString()" method converts a value into text. It is useful when displaying numeric results in a label, text box, or message box.
+
+Displaying a Number
 
 int myNumber = 123;
+
 MessageBox.Show(myNumber.ToString());
-You can also combine text and a number using the + operator.
+
+Displaying a Value in a Label
+
+decimal grossPay = 1550.0m;
+
+grossPayLabel.Text = grossPay.ToString();
+
+Combining Text and Numbers
+
+The "+" operator can combine text and numeric values.
+
 int idNumber = 1044;
+
 string output = "Your ID number is " + idNumber;
-Formatting Numbers
-The ToString() method can format a number to appear in a particular way.
-Format
-Purpose
+
+---
+
+10. Formatting Numbers
+
+The "ToString()" method can format numbers for display.
+
+Format| Purpose| Example
+""N""| Number with digit grouping| "value.ToString("N3")"
+""F""| Fixed decimal places| "value.ToString("F2")"
+""E""| Exponential notation| "value.ToString("E3")"
+""C""| Currency| "value.ToString("C")"
+""P""| Percentage| "value.ToString("P2")"
+
 Example
-"N"
-Number format
-value.ToString("N3")
-"F"
-Fixed-point format
-value.ToString("F2")
-"E"
-Exponential format
-value.ToString("E3")
-"C"
-Currency format
-value.ToString("C")
-"P"
-Percentage format
-value.ToString("P2")
+
 double price = 12.3;
-string formattedPrice = price.ToString("N3"); // 12.300
-The exact currency symbol and formatting can depend on the computer's regional settings.
-Exception Handling
-An exception is an unexpected error that occurs while a program is running. Examples include dividing by zero, trying to open a file that does not exist, or entering invalid data. If an exception is not handled, the program may stop unexpectedly.
-Exception handling allows a program to respond to an error instead of stopping unexpectedly. The code that responds to an exception is called an exception handler.
-The try-catch Statement
-Place statements that might cause an exception inside the try block. Place the statements that respond to the error inside the catch block.
-try
-{
-    // Statements that might cause an exception
-}
-catch
-{
-    // Statements that respond to the exception
-}
-For example, parsing nonnumeric text with double.Parse() can throw an exception.
+
+string formattedPrice = price.ToString("N3");
+
+Output:
+
+12.300
+
+Remember:
+
+- ""N3"" displays three decimal places with number grouping.
+- ""F2"" displays two decimal places.
+- ""C"" displays currency formatting.
+- ""P2"" displays a percentage with two decimal places.
+
+The currency symbol and some formatting details depend on the computer's regional settings.
+
+---
+
+11. Exception Handling
+
+An exception is an error that occurs while a program is running.
+
+Examples include:
+
+- Entering invalid numeric data.
+- Attempting to open a file that does not exist.
+- Dividing an integer or decimal value by zero.
+
+Exception handling allows a program to respond to errors instead of stopping unexpectedly.
+
+The "try-catch" Statement
+
+- "try" contains code that might cause an exception.
+- "catch" handles the exception if one occurs.
+
+Example:
+
 try
 {
     double miles = double.Parse(milesTextBox.Text);
@@ -130,19 +289,40 @@ catch
 {
     MessageBox.Show("Invalid data was entered.");
 }
-If the user enters text that is not a valid number, the program moves to the catch block and displays an error message.
-Throwing means an error occurs and an exception is raised. Catching means the program handles the exception and decides what to do next.
+
+If the user enters invalid numeric text, the program moves to the "catch" block.
+
 Displaying an Exception Message
-An exception object has a Message property that contains a description of the error. Use catch (Exception ex) to access the exception object.
+
+Use "catch (Exception ex)" to access information about the exception.
+
 try
 {
-    // Statements that might cause an exception
+    double miles = double.Parse(milesTextBox.Text);
 }
 catch (Exception ex)
 {
     MessageBox.Show(ex.Message);
 }
-Named Constants
-A named constant is a name representing a value that cannot be changed while the program is running. Use the const keyword to declare a constant.
+
+Important terms:
+
+- Throwing: An exception is raised when an error occurs.
+- Catching: The program handles the exception.
+
+---
+
+12. Named Constants
+
+A named constant represents a value that cannot be reassigned after declaration.
+
+Use the "const" keyword to declare a constant.
+
+Example:
+
 const double INTEREST_RATE = 0.129;
-Writing constant names in uppercase is a common convention, but it is not required
+const int MAX_HOURS = 40;
+
+Uppercase names are a common convention for constants, but they are not required.
+
+
