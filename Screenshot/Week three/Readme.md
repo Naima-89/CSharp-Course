@@ -1,65 +1,117 @@
- ToString, Parse, and Try-Catch
+Food Cost Calculator
 
-1. ToString()
+A C# Windows Forms application that calculates food costs, sales tax, and tips.
 
-"ToString()" converts a value into a string (text).
+---
 
-Example:
+About the Project
 
-int age = 20;
-string result = age.ToString();
+The Food Cost Calculator allows users to enter two food items and their prices, calculate the total cost, and display the results.
 
-Console.WriteLine(result);
+---
 
-Use: To convert numbers or other values into text.
+Features
 
-2. Parse()
+- Calculate the total cost of two food items.
+- Calculate 7% sales tax.
+- Calculate a 15% tip.
+- Display amounts in currency format.
+- Handle invalid numeric input.
+- Clear input fields and results.
+- Close the application.
 
-"Parse()" converts a string into a specified data type, such as "int" or "double".
+---
 
-Example:
 
-string number = "100";
-int result = int.Parse(number);
+Variables and Constants
 
-Console.WriteLine(result + 10);
+Variables store food names, prices, and calculation results.
 
-Output:
+Constants define fixed values, such as the sales tax and tip rates.
 
-110
+const double SALES_TAX = 7;
+const double amountTips = 15;
 
-Use: To convert text into a number for calculations.
+string food1, food2;
+double priceFood1, priceFood2;
+double totalAmount, salesTax, tipsAmount, netAmount;
 
-Note: "Parse()" throws an exception if the input is invalid.
+---
 
-3. Try-Catch
+Input Handling
 
-"try-catch" handles exceptions that occur while a program is running.
+The "Text" property reads values from text boxes, while "double.Parse()" converts price inputs into numbers.
 
-Example:
+food1 = txtfood1.Text;
+food2 = txtfood2.Text;
 
-try
-{
-    int number = int.Parse("abc");
-    Console.WriteLine(number);
-}
-catch (FormatException)
-{
-    Console.WriteLine("Invalid number");
-}
+priceFood1 = double.Parse(txtprice1.Text);
+priceFood2 = double.Parse(txtprice2.Text);
 
-Output:
+---
 
-Invalid number
+Calculations
 
-Use: To handle errors and prevent unhandled exceptions from terminating the program.
+Total Amount
 
-- "try": Contains code that may cause an exception.
-- "catch": Handles the specified exception.
+Adds the prices of both food items.
 
-Summary
+totalAmount = priceFood1 + priceFood2;
 
-Concept| Purpose
-"ToString()"| Converts a value to text.
-"Parse()"| Converts text to a specified data type.
-"try-catch"| Handles exceptions.
+Sales Tax
+
+Calculates 7% of the total amount.
+
+salesTax = totalAmount * SALES_TAX / 100;
+
+Tip Amount
+
+Calculates 15% of the total amount.
+
+tipsAmount = totalAmount * amountTips / 100;
+
+---
+
+Output Formatting
+
+"ToString("C2")" displays values in currency format with two decimal places.
+
+lblTotalAmount.Text = totalAmount.ToString("C2");
+
+lblSalesTax.Text = salesTax.ToString("C2");
+
+lblTipAmount.Text = tipsAmount.ToString("C2");
+
+lblNetAmount.Text = netAmount.ToString("C2");
+
+---
+
+Exception Handling
+
+The "try-catch" statement handles invalid input and prevents the application from crashing when an error occurs.
+
+"MessageBox.Show()" displays an error message to the user.
+
+---
+
+Button Functions
+
+- Calculate Button: Performs calculations and displays the results.
+- Clear Button: Clears the text boxes and output labels.
+- Close Button: Closes the current form using "this.Close()".
+
+---
+
+
+Learning Outcomes
+
+- Declaring variables and constants.
+- Reading and converting user input.
+- Performing arithmetic calculations.
+- Formatting currency output.
+- Handling exceptions.
+- Using Windows Forms controls and button events.
+
+---
+
+Developed using C# and Windows Forms.
