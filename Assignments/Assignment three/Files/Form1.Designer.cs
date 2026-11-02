@@ -32,6 +32,7 @@ namespace Files
             LsDisplay = new ListBox();
             btnCreate = new Button();
             btnDelete = new Button();
+            btnWrite = new Button();
             SuspendLayout();
             // 
             // LsDisplay
@@ -62,11 +63,22 @@ namespace Files
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             // 
+            // btnWrite
+            // 
+            btnWrite.Location = new Point(419, 187);
+            btnWrite.Name = "btnWrite";
+            btnWrite.Size = new Size(178, 76);
+            btnWrite.TabIndex = 8;
+            btnWrite.Text = "Write";
+            btnWrite.UseVisualStyleBackColor = true;
+            btnWrite.Click += btnWrite_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1017, 450);
+            Controls.Add(btnWrite);
             Controls.Add(btnDelete);
             Controls.Add(btnCreate);
             Controls.Add(LsDisplay);
@@ -85,5 +97,6 @@ namespace Files
         private ListBox LsDisplay;
         private Button btnCreate;
         private Button btnDelete;
+        private Button btnWrite;
     }
 }
