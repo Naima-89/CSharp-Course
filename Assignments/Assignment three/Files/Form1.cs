@@ -1,56 +1,141 @@
+﻿
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Files
+namespace FileManagementSystem
 {
     public partial class Form1 : Form
     {
-        string filePath = "student.txt";
+        // File location
+        string filePath = Path.Combine(
+            Application.StartupPath, "index.txt");
 
         public Form1()
         {
             InitializeComponent();
 
             btnCreate.Click += btnCreate_Click;
+            btnRead.Click += btnRead_Click;
+            btnAppend.Click += btnAppend_Click;
             btnDelete.Click += btnDelete_Click;
-            btnWrite.Click += btnWrite_Click;
+            btnClear.Click += btnClear_Click;
+            btnOpen.Click += btnOpen_Click;
         }
 
-        // CREATE FILE
+        // Create a new file
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            StreamWriter writing_file = File.CreateText(filePath);
+            try
+            {
+                using (StreamWriter writingFile =
+                    File.CreateText(filePath))
+                {
+                    writingFile.WriteLine(txtContent.Text);
+                }
 
-            writing_file.Close();
-
-            LsDisplay.Items.Add("File created successfully!");
+                MessageBox.Show("File created successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        // DELETE FILE
+        // Read the file
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("File does not exist!");
+                    return;
+                }
+
+                lstFileContents.Items.Clear();
+
+                using (StreamReader readingFile =
+                    File.OpenText(filePath))
+                {
+                    string line;
+
+                    while (readingFile.EndOfStream == false)
+                    {
+                        line = readingFile.ReadLine();
+                        lstFileContents.Items.Add(line);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Append new data
+        private void btnAppend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (StreamWriter writingFile =
+                    File.AppendText(filePath))
+                {
+                    writingFile.WriteLine(txtContent.Text);
+                }
+
+                MessageBox.Show("Data appended successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Delete the file
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (File.Exists(filePath))
+            try
             {
-                File.Delete(filePath);
-                LsDisplay.Items.Add("File deleted successfully!");
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    lstFileContents.Items.Clear();
+
+                    MessageBox.Show("File deleted successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist!");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                LsDisplay.Items.Add("File does not exist!");
+                MessageBox.Show(ex.Message);
             }
         }
 
-        // WRITE FILE
-        private void btnWrite_Click(object sender, EventArgs e)
+        // Clear the screen
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            StreamWriter writing_file = File.AppendText(filePath);
-
-            writing_file.WriteLine("Hello Nimca!");
-
-            writing_file.Close();
-
-            LsDisplay.Items.Add("Data written successfully!");
+            txtContent.Clear();
+            lstFileContents.Items.Clear();
         }
-    }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+
+            using (OpenFileDialog openFile = new OpenFileDialog())
+            {
+                openFile.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFile.FileName;
+
+                    txtContent.Text = File.ReadAllText(filePath);
+                }
+            }
+        }
+        }
 }
